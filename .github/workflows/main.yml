@@ -9,8 +9,8 @@ on:
         default: 'main'
         type: choice
         options:
-          - main
-          - develop
+          - 'main'
+          - 'develop'
 
       run_optional_jobs:
         description: 'Do you want to run the Optional Jobs?'
@@ -23,7 +23,7 @@ on:
 
 jobs:
   run-on-main:
-    if: ${{ github.event.inputs.target_branch == 'main' && github.event.inputs.run_optional_jobs == 'false'}}
+    if: ${{ github.event.inputs.branch == 'main' && github.event.inputs.run_optional_jobs == 'false'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -38,7 +38,7 @@ jobs:
         run: echo "This job runs only on the 'main' branch."
 
   run-on-develop:
-    if: ${{ github.event.inputs.target_branch == 'develop' && github.event.inputs.run_optional_jobs == 'false'}}
+    if: ${{ github.event.inputs.branch == 'develop' && github.event.inputs.run_optional_jobs == 'false'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
