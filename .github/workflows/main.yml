@@ -9,8 +9,8 @@ on:
         default: 'main'
         type: choice
         options:
-          - 'main'
-          - 'develop'
+          - main
+          - develop
 
       run_optional_jobs:
         description: 'Do you want to run the Optional Jobs?'
